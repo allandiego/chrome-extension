@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "Test Extension",
+  "short_name": "Test Extension",
+  "version": "1.0",
+  "version_name": "1.0",
+  "description": "Test Extension",
+  "omnibox": {
+    "keyword": "Test Extension"
+  },
+  "icons": {
+    "16": "assets/icons/app-icon-16.png",
+    "32": "assets/icons/app-icon-32.png",
+    "48": "assets/icons/app-icon-48.png",
+    "128": "assets/icons/app-icon-128.png"
+  },
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "cookies",
+    "webRequest",
+    "webNavigation",
+    "tabs",
+    "scripting",
+    "activeTab",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://*/*",
+    "https://*/*",
+    "file://*/*"
+  ],
+  "options_page": "screens/options.html",
+  "options_ui": {
+    "page": "screens/options.html"
+  },
+  "content_scripts": [
+    {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+          "js/vendor.js",
+          "js/content_script.js"
+        ]
+    }
+  ],
+  "action": {
+    "default_title": "Abrir",
+    "default_popup": "/screens/popup.html",
+    "default_icon": {
+      "16": "assets/icons/app-icon-16.png",
+      "32": "assets/icons/app-icon-32.png",
+      "48": "assets/icons/app-icon-48.png",
+      "128": "assets/icons/app-icon-128.png"
+    }
+  }
+}
